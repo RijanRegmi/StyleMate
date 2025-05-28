@@ -1,0 +1,2 @@
+# StyleMate
+Group project
