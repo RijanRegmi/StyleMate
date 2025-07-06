@@ -1,0 +1,51 @@
+{
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.8.2",
+    "@tensorflow-models/face-landmarks-detection": "^1.0.6",
+    "@tensorflow/tfjs": "^4.22.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "autoprefixer": "^10.4.21",
+    "axios": "^1.10.0",
+    "express": "^5.1.0",
+    "framer-motion": "^12.19.2",
+    "jest": "^30.0.3",
+    "lucide-react": "^0.525.0",
+    "mongoose": "^8.16.1",
+    "multer": "^2.0.1",
+    "next": "^15.3.4",
+    "next-auth": "^4.24.11",
+    "postcss": "^8.5.6",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-hook-form": "^7.59.0",
+    "react-redux": "^9.2.0",
+    "recharts": "^3.0.2",
+    "sharp": "^0.34.2",
+    "tailwindcss": "^4.1.11"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.6",
+    "@types/react": "^19.1.8",
+    "typescript": "^5.8.3"
+  },
+  "name": "stylemate",
+  "version": "1.0.0",
+  "description": "Group project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RijanRegmi/StyleMate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RijanRegmi/StyleMate/issues"
+  },
+  "homepage": "https://github.com/RijanRegmi/StyleMate#readme"
+}
