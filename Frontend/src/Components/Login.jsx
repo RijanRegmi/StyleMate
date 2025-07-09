@@ -18,6 +18,12 @@ const Login = () => {
             navigate("/Admin");
             return;
         }
+        
+            else{
+                navigate("/yourphoto")
+
+            }
+        
 
         try {
             const response = await fetch("http://localhost:5000/api/login", {
@@ -84,6 +90,7 @@ const Login = () => {
                 <div className="submit-container">
                     <div className="submit gray" onClick={() => navigate("/signup")}>Sign Up</div>
                     <div className='submit' onClick={handleLogin}>Login</div>
+                      
                 </div>
             </div>
         </div>
