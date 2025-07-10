@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../style/YourPhoto.css';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import ovalImage from '../assets/oval.png';
+import sinImage from '../assets/sin.png';
 
 function YourPhoto() {
   const navigate = useNavigate();
@@ -73,19 +75,24 @@ function YourPhoto() {
         </p>
 
         <div className="circle-container">
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
+          <div>
+            <img src={sinImage} alt="style" className='circle' />
+          </div>
+          <button className="circle"></button>
+          <button className="circle"></button>
+          <button className="circle"></button>
         </div>
 
         <p>You can try these too</p>
 
         <div className="circle-container">
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
-          <div className="circle"></div>
+          <button className="circle">
+           <div >
+             <img src={ovalImage} alt="style" className='circle' /></div>
+          </button>
+          <button className="circle"></button>
+          <button className="circle"></button>
+          <button className="circle"></button>
         </div>
       </div>
     </div>

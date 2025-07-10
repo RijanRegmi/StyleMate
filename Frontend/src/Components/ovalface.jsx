@@ -26,17 +26,17 @@ function OvalFace() {
           <p>Since your face is Oval/Square/Rectangle <br/>We recommended you these hair designs</p>
           
           <div className="circle-container">
-            <div className="circle"></div>
-            <div className="circle"></div>
-            <div className="circle"></div>
-            <div className="circle"></div>
+            <button className="circle"></button>
+            <button className="circle"></button>
+            <button className="circle"></button>
+            <button className="circle"></button>
             </div>
             <p>You can try these too</p>
              <div className="circle-container">
-            <div className="circle"></div>
-            <div className="circle"></div>
-            <div className="circle"></div>
-            <div className="circle"></div>
+            <button className="circle"></button>
+            <button className="circle"></button>
+            <button className="circle"></button>
+            <button className="circle"></button>
             </div>
             
         </div>

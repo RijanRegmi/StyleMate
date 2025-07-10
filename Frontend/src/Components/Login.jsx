@@ -15,7 +15,7 @@ const Login = () => {
         setErrorMessage("");
 
         if (email === "admin" && password === "123") {
-            navigate("/Admin");
+            navigate("/admin");
             return;
         }
         
@@ -51,7 +51,7 @@ const Login = () => {
     return (
         <div className='BackgroundImage'>
             {errorMessage && (
-                <div className="error-popup">
+                <div className="error-popup"> =
                     <span className="error-icon">❌</span>
                     <span>{errorMessage}</span>
                     <button className="close-btn" onClick={() => setErrorMessage("")}>✖</button>
