@@ -5,7 +5,7 @@ import Yourphoto from './yourphoto.jsx';
 import OvalFace from './ovalface.jsx';
 import SquareFace from "./squareface.jsx";
 import RectangaleFace from "./rectangelface.jsx";
-
+import UploadOrScan from './UploadOrScan.jsx';
 
 
 function App() {
@@ -18,6 +18,7 @@ function App() {
           <Route path="/ovalface" element={<OvalFace/>} />
            <Route path="/squareface" element={<SquareFace/>} />
             <Route path="/rectangleface" element={<RectangaleFace/>} />
+            <Route path="/UploadOrScan" element={<UploadOrScan/>} />
           <Route path="/Login" element={<Login />} />
           <Route path="/" element={<Login />} />
 
