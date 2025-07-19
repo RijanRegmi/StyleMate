@@ -20,7 +20,7 @@ const Login = () => {
         }
         
             else{
-                navigate("/yourphoto")
+                navigate("/StyleMate")
 
             }
         
