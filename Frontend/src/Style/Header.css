@@ -1,5 +1,4 @@
 
-
 .logo{
   width: 50%;
   display: flex;
@@ -17,6 +16,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 80px;
+  height: 70px;
   background: #ffffff;
   box-shadow:0 5px 15px rgba(0, 0, 0, 0.06);
   z-index: 999;
@@ -36,6 +36,8 @@
   list-style: none;
   padding: 0 20px;
   position: relative;
+  padding-top: 20px;
+
 }
 
 

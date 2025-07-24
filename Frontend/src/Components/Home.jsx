@@ -5,9 +5,9 @@ import Footer from './Footer.jsx';
 function MainApp() {
   return (
     <>
-      <Header />
+      <Header/>
       <Hero/>
-      <Footer />
+      <Footer/>
     </>
   );
 }

@@ -1,7 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignUp from './SignUp.jsx';
 import Login from './Login.jsx';
-import StyleMate from './StyleMate.jsx';
+import Home from './Home.jsx';
+import Lens from './Lens.jsx';
 
 function App() {
   return(
@@ -11,7 +12,8 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/Signup" element={<SignUp />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/StyleMate" element={<StyleMate />} />
+          <Route path="/Home" element={<Home/>} />
+          <Route path="/Lens" element={<Lens />} />
 
         </Routes>
       </Router>

@@ -16,7 +16,7 @@ function Footer(){
                             {/* <img className="logo" src={profilepic}  alt="" /> */}
                             <h4>Contact</h4>
                             <p><strong>Address:</strong> Kalanki, Street 00, Kalanki </p>
-                            <p><strong>Phone:</strong> (+977)9869061333</p>
+                            <p><strong>Phone:</strong> (+977)9800000000</p>
                             <div className="follow">
                                 <h4>Follow us</h4>
                                 <div className="icon">
@@ -43,7 +43,7 @@ function Footer(){
                     </div>
 
                     <div className="copyright">
-                        <p>©️ 2025, TazaNews</p>
+                        <p>©️ 2025, Stylemate</p>
                     </div>
                 </footer>
                 </div>

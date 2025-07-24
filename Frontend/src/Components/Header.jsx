@@ -31,20 +31,11 @@ function Header() {
                 <div>
                     <nav>
                         <ul className="navbar" id="navbar">
-                            {/* <li><a href="" className={isActive("/Home") ? "active" : ""} onClick={() => navigate("/Home")}>Home</a></li>
+                            <li><a href="" className={isActive("/Home") ? "active" : ""} onClick={() => navigate("/Home")}>Home</a></li>
                             <li><a href="" className={isActive("/Lens") ? "active" : ""} onClick={() => navigate("/Lens")}>Lens</a></li>
                             <li><a href="" className={isActive("/About") ? "active" : ""} onClick={() => navigate("/About")}>About</a></li>
                             <li><a href="#" className={isActive("/Profile") ? "active" : ""} onClick={() => navigate("/Profile")}>Profile</a></li>
-                            <li><a href="#" className={isActive("/Login") ? "active" : ""} onClick={() => navigate("/Login")}>Log Out</a></li> */}
-
-
-
-
-                            <li><a href="" className={isActive("/Home") ? "active" : ""}>Home</a></li>
-                            <li><a href="" className={isActive("/Lens") ? "active" : ""}>Lens</a></li>
-                            <li><a href="" className={isActive("/About") ? "active" : ""}>About</a></li>
-                            <li><a href="#" className={isActive("/Profile") ? "active" : ""}>Profile</a></li>
-                            <li><a href="#" className={isActive("/Login") ? "active" : ""}>Log Out</a></li>
+                            <li><a href="#" className={isActive("/Login") ? "active" : ""} onClick={() => navigate("/Login")}>Log Out</a></li> 
                             <a href="#" className="close">❌</a>
                         </ul>
                     </nav>
