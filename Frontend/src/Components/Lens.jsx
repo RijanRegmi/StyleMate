@@ -68,18 +68,23 @@ function Lens() {
   };
 
   const triggerUpload = () => {
+    fileInputRef.current.value = ""; // ✅ Reset before opening file dialog
     fileInputRef.current.click();
   };
+
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (!file) return;
+
     const reader = new FileReader();
     reader.onloadend = () => {
       setCapturedImg(reader.result);
+      fileInputRef.current.value = ""; // ✅ Reset file input so same file works again
     };
     reader.readAsDataURL(file);
   };
+
 
   const handleDownload = () => {
     const a = document.createElement('a');
@@ -158,7 +163,7 @@ function Lens() {
           <button className="action-btn" onClick={() => setShowPreview(true)}>Preview</button>
           <button className="action-btn" onClick={handleDownload}>Download</button>
 
-          <h3 className="subtext1">Try These styles</h3>
+          <h3 className="subtext">Try These styles</h3>
           <div className="filters">
             {[...Array(7)].map((_, idx) => (
               <div
