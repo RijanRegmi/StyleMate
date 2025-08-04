@@ -34,4 +34,8 @@
     font-weight: 700;
     font-size: 15px;
   }
-  
+  .hero .icons img {
+  width: 80px;  /* adjust as needed */
+  height: auto;
+  margin:20px;
+}
