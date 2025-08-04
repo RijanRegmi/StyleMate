@@ -3,7 +3,7 @@ import SignUp from './SignUp.jsx';
 import Login from './Login.jsx';
 import Home from './Home.jsx';
 import Lens from './Lens.jsx';
-
+import About from './About.jsx';
 function App() {
   return(
     <>
@@ -14,6 +14,7 @@ function App() {
           <Route path="/Login" element={<Login />} />
           <Route path="/Home" element={<Home/>} />
           <Route path="/Lens" element={<Lens />} />
+          <Route path="/About" element={<About />} />
 
         </Routes>
       </Router>
