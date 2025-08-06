@@ -14,17 +14,6 @@ const Login = () => {
         event.preventDefault();
         setErrorMessage("");
 
-        if (email === "admin" && password === "123") {
-            navigate("/admin");
-            return;
-        }
-        
-            else{
-                navigate("/Home")
-
-            }
-        
-
         try {
             const response = await fetch("http://localhost:5000/api/login", {
                 method: "POST",
@@ -51,7 +40,7 @@ const Login = () => {
     return (
         <div className='BackgroundImage'>
             {errorMessage && (
-                <div className="error-popup"> =
+                <div className="error-popup">
                     <span className="error-icon">❌</span>
                     <span>{errorMessage}</span>
                     <button className="close-btn" onClick={() => setErrorMessage("")}>✖</button>
@@ -80,8 +69,6 @@ const Login = () => {
                             type="password" 
                             placeholder='Password' 
                             value={password} 
-
-                            
                             onChange={(e) => setPassword(e.target.value)} 
                         />
                     </div>
@@ -90,7 +77,6 @@ const Login = () => {
                 <div className="submit-container">
                     <div className="submit gray" onClick={() => navigate("/signup")}>Sign Up</div>
                     <div className='submit' onClick={handleLogin}>Login</div>
-                      
                 </div>
             </div>
         </div>

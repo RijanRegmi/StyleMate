@@ -9,16 +9,24 @@ function Lens() {
   const fileInputRef = useRef(null);
 
   const [capturedImg, setCapturedImg] = useState(null);
-  const [selectedFilter, setSelectedFilter] = useState(null);
+  const [selectedFilter, setSelectedFilter] = useState(0);
   const [showPreview, setShowPreview] = useState(false);
   const [flashOn, setFlashOn] = useState(false);
   const [timer, setTimer] = useState(0);
   const [countdown, setCountdown] = useState(null);
+  const [processedImg, setProcessedImg] = useState(null);
+  const [faceShape, setFaceShape] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const startCamera = async () => {
-    const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-    if (videoRef.current) {
-      videoRef.current.srcObject = stream;
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+      }
+    } catch (error) {
+      setError('Failed to start camera: ' + error.message);
     }
   };
 
@@ -46,6 +54,7 @@ function Lens() {
     const imageDataURL = canvas.toDataURL('image/png');
     setCapturedImg(imageDataURL);
     flashEffect();
+    processImage(imageDataURL);
   };
 
   const handleCaptureWithTimer = () => {
@@ -68,10 +77,9 @@ function Lens() {
   };
 
   const triggerUpload = () => {
-    fileInputRef.current.value = ""; // ✅ Reset before opening file dialog
+    fileInputRef.current.value = "";
     fileInputRef.current.click();
   };
-
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
@@ -79,17 +87,56 @@ function Lens() {
 
     const reader = new FileReader();
     reader.onloadend = () => {
-      setCapturedImg(reader.result);
-      fileInputRef.current.value = ""; // ✅ Reset file input so same file works again
+      const imageDataURL = reader.result;
+      setCapturedImg(imageDataURL);
+      processImage(imageDataURL);
+      fileInputRef.current.value = "";
     };
     reader.readAsDataURL(file);
   };
 
+  const processImage = async (imageDataURL) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      console.log('Sending image to backend with hairstyle_idx:', selectedFilter);
+      const response = await fetch('http://localhost:5000/process-image', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ image: imageDataURL, hairstyle_idx: selectedFilter + 1 }),
+      });
+      const data = await response.json();
+      console.log('Backend response:', data);
+      if (data.error) {
+        setError(data.error);
+        return;
+      }
+      setProcessedImg(data.result_image);
+      setFaceShape(data.face_shape);
+      console.log('Set processedImg:', data.result_image.substring(0, 50));
+    } catch (error) {
+      setError('Failed to process image: ' + error.message);
+      console.error('Processing error:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleFilterClick = (idx) => {
+    setSelectedFilter(idx);
+    if (capturedImg) {
+      processImage(capturedImg);
+    }
+  };
 
   const handleDownload = () => {
+    if (!processedImg && !capturedImg) {
+      setError('No image to download');
+      return;
+    }
     const a = document.createElement('a');
-    a.href = capturedImg;
-    a.download = 'captured-image.png';
+    a.href = processedImg || capturedImg;
+    a.download = 'processed-image.png';
     a.click();
   };
 
@@ -103,8 +150,6 @@ function Lens() {
 
           <div className="camera-box">
             <video ref={videoRef} autoPlay className="video-feed" />
-
-            {/* Flash Toggle Button */}
             <button
               className={`icon-btn flash-btn ${flashOn ? 'active' : ''}`}
               onClick={() => setFlashOn(!flashOn)}
@@ -112,8 +157,6 @@ function Lens() {
             >
               ⚡
             </button>
-
-            {/* Timer Dropdown */}
             <div className="timer-dropdown">
               <button className="icon-btn timer-btn" title="Timer">
                 ⏱
@@ -130,11 +173,7 @@ function Lens() {
                 ))}
               </div>
             </div>
-
-            {/* Capture Button */}
             <button onClick={handleCaptureWithTimer} className="capture-btn"></button>
-
-            {/* Countdown */}
             {countdown !== null && <div className="countdown-overlay">{countdown}</div>}
           </div>
 
@@ -157,7 +196,18 @@ function Lens() {
         <div className="frame">
           <h2 className="title">Your recommended output</h2>
           <div className="output-box">
-            {capturedImg && <img src={capturedImg} alt="Captured" className="captured-img" />}
+            {isLoading ? (
+              <p>Loading...</p>
+            ) : error ? (
+              <p className="error">{error}</p>
+            ) : processedImg ? (
+              <>
+                <img src={processedImg} alt="Processed" className="captured-img" style={{ maxWidth: '100%', border: '2px solid red' }} />
+                {faceShape && <p className="subtext">Predicted Face Shape: {faceShape}</p>}
+              </>
+            ) : (
+              capturedImg && <img src={capturedImg} alt="Captured" className="captured-img" style={{ maxWidth: '100%' }} />
+            )}
           </div>
 
           <button className="action-btn" onClick={() => setShowPreview(true)}>Preview</button>
@@ -169,17 +219,17 @@ function Lens() {
               <div
                 key={idx}
                 className={`filter-circle ${selectedFilter === idx ? 'selected-filter' : ''}`}
-                onClick={() => setSelectedFilter(idx)}
+                onClick={() => handleFilterClick(idx)}
               ></div>
             ))}
           </div>
         </div>
 
-        {showPreview && (
+        {showPreview && (processedImg || capturedImg) && (
           <div className="preview-popup">
             <div className="popup-content">
               <button className="close-btn" onClick={() => setShowPreview(false)}>✕</button>
-              <img src={capturedImg} alt="Preview" className="popup-img" />
+              <img src={processedImg || capturedImg} alt="Preview" className="popup-img" />
             </div>
           </div>
         )}

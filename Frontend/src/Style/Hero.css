@@ -1,41 +1,72 @@
+.hero {
+  height: 95vh;
+  width: 100%;
+  background-color: #ffffff;
+  padding: 0 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
 
-.hero{
-    /* background-image: url("img/hero4.png"); */
-    height: 95vh;
-    width: 100%;
-    background-color: #ead7ff;
-    background-size: cover;
-    background-position: top 25% right 0;
-    padding: 0 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  
-  
-  
-  .hero h4{
-    padding-bottom: 15px;
-  }
-  
-  .hero h1{
-    color: rgb(70, 185, 147);
-  }
-  
-  .hero button{
-    /* background-image: url("img/button.png"); */
-    background-color: transparent;
-    color: rgb(131, 189, 98);
-    border: 0;
-    padding: 14px 80px 14px 65px;
-    background-repeat: no-repeat;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 15px;
-  }
-  .hero .icons img {
-  width: 80px;  /* adjust as needed */
+/* LEFT SIDE */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 50%;
+}
+
+.subheading {
+  color: #a94eff;
+  font-weight: bold;
+  font-size: 80px;
+}
+
+.headline {
+  color: rgb(203, 206, 25);
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* BUTTON */
+.cta-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 59px;
+  color: #ff4e4e;
+  background: #f9e96f;
+  border-radius: 50px;
+  font-size: 19px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.cta-button:hover {
+  color: #e4ff4e;
+  background: #c26ff9;
+}
+
+/* RIGHT SIDE IMAGES */
+.icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 180px;       /* Bring icons a bit to the left */
+  transform: translateX(-40px); /* Fine-tune the left shift */
+}
+
+.icons img {
+  width: 140px;   /* Made bigger than 80px */
   height: auto;
-  margin:20px;
+  margin: 25px 0;
 }

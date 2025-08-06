@@ -53,19 +53,8 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transform: scaleX(-1);
 }
-
-/* .capture-btn {
-  position: absolute;
-  bottom: 10px;
-  left: calc(50% - 25px);
-  width: 50px;
-  height: 50px;
-  background-color: white;
-  border-radius: 50%;
-  border: 4px solid #b028ff;
-  cursor: pointer;
-} */
 
 /* ============ Upload and Buttons ============ */
 .file-input-hidden {
@@ -107,6 +96,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: scaleX(-1);
 }
 
 .captured-img {
@@ -148,6 +138,7 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
+  transform: scaleX(-1);
 }
 
 .popup-content {
@@ -171,11 +162,11 @@
 .close-btn {
   position: absolute;
   top: 10px;
-  right: 15px;
-  font-size: 1.5rem;
+  left: 15px;
+  font-size: 2.5rem;
   background: transparent;
   border: none;
-  color: #b028ff;
+  color: #ff2828;
   cursor: pointer;
 }
 
@@ -276,3 +267,4 @@
   font-weight: bold;
   color: #b028ff;
 }
+
